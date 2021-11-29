@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register your Organization
+{% endblock %}
+
+{% block main %}
+    <form action="/orgregister" method="post">
+        how much time do u have
+        <input autocomplete="off" id="time" name="time" placeholder="in hours pls" type="integer" step = "0.5">
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register your Organization
+{% endblock %}
+
+{% block main %}
+    <form action="/orgregister" method="post">
+        <div class="mb-3">
+            Choose username
+            <input autocomplete="off" id="user" name="user" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            Choose password
+            <input id="password" name="password" placeholder="Password" type="password">
+            Confirm password
+            <input id="confirm" name="confirm" placeholder="Confirm password" type="password">
+        </div>
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}
