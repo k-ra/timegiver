@@ -2,11 +2,10 @@
 #DON'T JUDGE
 #PLEASE
 
-# Add comment
-
 import os
+import cs50
 
-from cs50 import SQL
+# from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
@@ -27,12 +26,11 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///timegiver.db")
+db = cs50.SQL("sqlite:///timegiver.db")
 
 # Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
-
+# if not os.environ.get("API_KEY"):
+#     raise RuntimeError("API_KEY not set")
 
 @app.after_request
 def after_request(response):
@@ -194,3 +192,7 @@ def search():
 
     else:
         return render_template("search.html")
+
+
+if __name__ == "__main__":
+    app.run()
