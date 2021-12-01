@@ -178,7 +178,7 @@ def search():
         #import values
         duration = request.form.get("duration")
         #date = request.form.get("date")
-    
+
         #check input
         if not duration :
             return apology("put in the time come on it's like the one thing we need")
@@ -189,6 +189,22 @@ def search():
         #get things within that duration
         table = db.execute("SELECT id, org_id, name, description FROM openings WHERE duration < ?", duration)
         return redirect("/")
+
+    else:
+        return render_template("search.html")
+
+
+# headings = ("Organization", "Role", "Hour", "Description")
+# data = (
+# ("PBHA", "Volunteer", "5", "skdjskdjksdj"),
+# ("PBHA", "Volunteer", "5", "skdjskdjksdj")
+# )
+
+#DYNAMIC RESULTS TABLE
+@app.route("/results", methods=["GET", "POST"])
+def table():
+    if request.method == "POST":
+        return render_template("table.html", headings=headings, data=data)
 
     else:
         return render_template("search.html")
