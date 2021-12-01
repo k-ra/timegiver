@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    tell us more about your organization
+{% endblock %}
+
+{% block main %}
+    <form action="/orgregmore" method="post">
+        <div class="mb-3">
+            Short Biography and Description
+            <br><textarea autocomplete="off" id="description" name="description" placeholder="Biography" type="text"></textarea> <br>
+
+            ONLINE or IN-PERSON?
+            <br><div class="mb-3">
+                <select name="online" id="online" type = "text">
+                    <option>ONLINE</option>
+                    <option>IN-PERSON</option>
+                    <option>ONLINE and IN-PERSON</option>
+                </select>
+            </div>
+            Address (if in-person)
+            <br><input autocomplete="off" id="address" name="address" placeholder="Address" type="text"><br>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}
