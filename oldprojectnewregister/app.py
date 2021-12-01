@@ -2,6 +2,8 @@
 #DON'T JUDGE
 #PLEASE
 
+# comment
+
 import os
 
 from cs50 import SQL
