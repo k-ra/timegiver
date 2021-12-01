@@ -29,9 +29,9 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///timegiver.db")
 
-# Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
+# # Make sure API key is set
+# if not os.environ.get("API_KEY"):
+#     raise RuntimeError("API_KEY not set")
 
 
 @app.after_request
@@ -195,3 +195,21 @@ def search():
 
     else:
         return render_template("search.html")
+
+# headings = ("Organization", "Role", "Hour", "Description")
+# data = (
+# ("PBHA", "Volunteer", "5", "skdjskdjksdj"),
+# ("PBHA", "Volunteer", "5", "skdjskdjksdj")
+# )
+
+#DYNAMIC RESULTS TABLE
+@app.route("/results", methods=["GET", "POST"])
+def table():
+    if request.method == "POST":
+        return render_template("table.html", headings=headings, data=data)
+
+    else:
+        return render_template("search.html")
+
+if __name__ == "__main__":
+    app.run()
