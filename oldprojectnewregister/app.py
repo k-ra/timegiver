@@ -13,7 +13,7 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
-from helpers import apology
+from helpers import apology, keyword
 
 # Configure application
 app = Flask(__name__)
@@ -191,25 +191,15 @@ def search():
 
         #get things within that duration
         table = db.execute("SELECT name, description FROM openings WHERE duration < ?", duration)
+        # for i in enumerate(table):
+        #     print(keyword(table[i]['description']))
+        # keyword_table = db.execute("INSERT INTO openings (keywords)")
+        # print(keyword(table[1]['description']))
         return render_template("results.html", table=table)
 
     else:
         return render_template("search.html")
 
-headings = ("Organization", "Role", "Hour", "Description")
-# data = (
-# ("PBHA", "Volunteer", "5", "skdjskdjksdj"),
-# ("PBHA", "Volunteer", "5", "skdjskdjksdj")
-# )
-
-#DYNAMIC RESULTS TABLE
-# @app.route("/results", methods=["GET", "POST"])
-# def table():
-#     if request.method == "POST":
-#         return render_template("table.html", headings=headings, data=data)
-#
-#     else:
-#         return render_template("search.html")
 
 if __name__ == "__main__":
     app.run()
