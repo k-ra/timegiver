@@ -191,7 +191,7 @@ def search():
             #TODO
 
         #get things within that duration
-        table = db.execute("SELECT name, description FROM openings WHERE duration < ?", duration)
+        table = db.execute("SELECT name, description, id FROM openings WHERE duration < ?", duration)
         # for i in enumerate(table):
         #     print(keyword(table[i]['description']))
         # keyword_table = db.execute("INSERT INTO openings (keywords)")
@@ -201,25 +201,42 @@ def search():
     else:
         return render_template("search.html")
 
-@app.route("/form", methods=["POST"])
+@app.route("/form", methods=["GET", "POST"])
 def form():
-    first_name = request.form.get("first_name")
-    last_name = request.form.get("last_name")
-    email = request.form.get("email")
+    if request.method == "POST":
 
-    message = "You have signed up for the following volunteer activity"
-    server=smtplib.SMTP("smtp.gmail.com", 587)
-    server.starttls()
-    server.login("carinafpeng@gmail.com", "")
-    server.sendmail("carinafpeng@gmail.com", email, message)
+        table = db.execute("SELECT id FROM openings")
+        selection = None
+        for i in table:
+            if request.form["button_clicked"] == str(i["id"]):
+                selection = i["id"]
 
-    if not first_name or not last_name or not email:
-        error_statement = "All form fields required..."
-        return render_template("subscribe.html",
-                               error_statement=error_statement,
-                               first_name=first_name,
-                               last_name=last_name,
-                               email=email)
+        print(selection)
+        # query the table for get the current user's information via their session["user_id"]
+        # query the table of openings to get the organization information
+        # insert all of this data into a new table
+        # send emails to both the user and org
+
+        return redirect("/")
+
+    else:
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
+        email = request.form.get("email")
+
+        message = "You have signed up for the following volunteer activity"
+        server=smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login("carinafpeng@gmail.com", "")
+        server.sendmail("carinafpeng@gmail.com", email, message)
+
+        if not first_name or not last_name or not email:
+            error_statement = "All form fields required..."
+            return render_template("subscribe.html",
+                                   error_statement=error_statement,
+                                   first_name=first_name,
+                                   last_name=last_name,
+                                   email=email)
 
 
 if __name__ == "__main__":

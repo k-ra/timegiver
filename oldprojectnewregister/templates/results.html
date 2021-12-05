@@ -13,18 +13,20 @@
             <th>Sign up</th>
         </tr>
     <tbody>
+    <form action="/form" method="POST">
     {% for org in table %}
     <tr>
         <td>{{ org.name }}</td>
         <td>{{ org.description }}</td>
         <td>
 
-            <button class="btn btn-primary" id="sign_up" name="subscribe" onclick="form()">Sign up</button>
+            <button class="btn btn-primary" name="button_clicked" value={{ org.id }} type="submit">Sign up</button>
 
         </td>
 
     </tr>
     {% endfor %}
+    </form>
     </tbody>
 
 </table>
