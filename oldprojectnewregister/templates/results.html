@@ -10,12 +10,19 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Sign up</th>
         </tr>
     <tbody>
     {% for org in table %}
     <tr>
         <td>{{ org.name }}</td>
         <td>{{ org.description }}</td>
+        <td>
+
+            <button class="btn btn-primary" id="sign_up" name="subscribe" onclick="form()">Sign up</button>
+
+        </td>
+
     </tr>
     {% endfor %}
     </tbody>

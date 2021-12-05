@@ -14,6 +14,7 @@ from werkzeug.exceptions import default_exceptions, HTTPException, InternalServe
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
 from helpers import apology, keyword
+import smtplib
 
 # Configure application
 app = Flask(__name__)
@@ -199,6 +200,26 @@ def search():
 
     else:
         return render_template("search.html")
+
+@app.route("/form", methods=["POST"])
+def form():
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    email = request.form.get("email")
+
+    message = "You have signed up for the following volunteer activity"
+    server=smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    server.login("carinafpeng@gmail.com", "")
+    server.sendmail("carinafpeng@gmail.com", email, message)
+
+    if not first_name or not last_name or not email:
+        error_statement = "All form fields required..."
+        return render_template("subscribe.html",
+                               error_statement=error_statement,
+                               first_name=first_name,
+                               last_name=last_name,
+                               email=email)
 
 
 if __name__ == "__main__":
