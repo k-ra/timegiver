@@ -192,10 +192,15 @@ def search():
 
         #get things within that duration
         table = db.execute("SELECT name, description, id FROM openings WHERE duration < ?", duration)
-        # for i in enumerate(table):
-        #     print(keyword(table[i]['description']))
-        # keyword_table = db.execute("INSERT INTO openings (keywords)")
+
+        #TODO: I;m not sure how to display the keywords: but you extract them via keyword(table[1]['description'])
         # print(keyword(table[1]['description']))
+
+        # for i in enumerate(table):
+        #     print(keyword(table[1]['description']))
+        #     db.execute("INSERT INTO openings (keywords) VALUES (?)", keyword(table[i]['description']))
+
+
         return render_template("results.html", table=table)
 
     else:
@@ -210,8 +215,8 @@ def form():
         for i in table:
             if request.form["button_clicked"] == str(i["id"]):
                 selection = i["id"]
+                db.execute("INSERT INTO signup (opening_id, user_id) VALUES (?, ?)", selection, session["user_id"])
 
-        print(selection)
         # query the table for get the current user's information via their session["user_id"]
         # query the table of openings to get the organization information
         # insert all of this data into a new table
@@ -219,24 +224,25 @@ def form():
 
         return redirect("/")
 
-    else:
-        first_name = request.form.get("first_name")
-        last_name = request.form.get("last_name")
-        email = request.form.get("email")
+    # else:
+    #     first_name = request.form.get("first_name")
+    #     last_name = request.form.get("last_name")
+    #     email = request.form.get("email")
+    #
+    #     message = "You have signed up for the following volunteer activity"
+    #     server=smtplib.SMTP("smtp.gmail.com", 587)
+    #     server.starttls()
+    #     server.login("carinafpeng@gmail.com", "")
+    #     server.sendmail("carinafpeng@gmail.com", email, message)
+    #
+    #     if not first_name or not last_name or not email:
+    #         error_statement = "All form fields required..."
+    #         return render_template("subscribe.html",
+    #                                error_statement=error_statement,
+    #                                first_name=first_name,
+    #                                last_name=last_name,
+    #                                email=email)
 
-        message = "You have signed up for the following volunteer activity"
-        server=smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()
-        server.login("carinafpeng@gmail.com", "")
-        server.sendmail("carinafpeng@gmail.com", email, message)
-
-        if not first_name or not last_name or not email:
-            error_statement = "All form fields required..."
-            return render_template("subscribe.html",
-                                   error_statement=error_statement,
-                                   first_name=first_name,
-                                   last_name=last_name,
-                                   email=email)
 
 
 if __name__ == "__main__":
