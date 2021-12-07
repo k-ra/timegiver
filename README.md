@@ -3,7 +3,7 @@
 ## About
 Welcome to Timegiver! Here you can spontaneously find local volunteer opportunities based on your busy schedule, and post openings for others to help you out!
 
-Here is a lightning 2-minute vido walkthrough of Timegiver and its functions: https://youtu.be/7nnfhsYcsQ4
+Here is a lightning 2-minute vido walkthrough of Timegiver and its functions: https://youtu.be/dGIenUaEgY4
 
 ## Get started
 To run the app, please clone the repo on your desired IDE. Please install any packages when the IDE prompts you to do so. Run the Flask app locally.
