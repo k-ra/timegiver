@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post Volunteer Opportunity
+{% endblock %}
+
+{% block main %}
+    <h3> Post a New Volunteer Opportunity</h3>
+    <form action="/postopp" method="post">
+        <div class="mb-3">
+            Activity Name:
+            <br><input id="name" name="name" placeholder="Title" type="text"> <br>
+            Type: 
+            <br><div class="mb-3">
+                <select name="type" id="type">
+                    <option>Environment</option>
+                    <option>Education</option>
+                    <option>Community</option>
+                    <option>Arts and Culture</option>
+                    <option>Animals</option>
+                    <option>Seniors</option>
+                </select>
+            </div><br>
+            Date:
+            <br> <input id="date" name="date" placeholder="00/00/00" type="date"><br>
+            Description:
+            <br><textarea id="description" name="description" placeholder="Describe the activity" type="text"></textarea><br>
+            How much time will it take? 
+            <br><input id="duration" name="duration" placeholder="Hours and a half" type="number" step="0.5">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}

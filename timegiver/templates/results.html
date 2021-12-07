@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Available Opportunities
+{% endblock %}
+
+{% block main %}
+
+<table>
+        <tr>
+            <th>Date</th>
+            <th>Activity</th>
+            <th>Organization</th>
+            <th>Type</th>
+            <th>Description</th>
+            <!-- <th>Keywords</th> -->
+            <th>Sign up</th>
+        </tr>
+    <tbody>
+    <form action="/signup" method="POST">
+    {% for opening in table %}
+    <tr>
+        <td>{{ opening.date }}</td>
+        <td>{{ opening.name }}</td>
+        <td>{{ opening.org_id }}</td>
+        <td>{{ opening.type }}</td>
+        <td>{{ opening.description }}</td>
+        <!-- <td>{{ opening.keywords }}</td> -->
+        <td>
+            <button class="btn btn-primary" name="button_clicked" value={{ opening.id }} type="submit">Sign up</button>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </form>
+    </tbody>
+
+</table>
+
+
+
+{% endblock %}

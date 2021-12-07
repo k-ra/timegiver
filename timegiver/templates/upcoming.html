@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upcoming Registered Events
+{% endblock %}
+
+{% block main %}
+
+<h2>Upcoming Registered Events</h2> 
+<table>
+        <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Description</th>
+            <th>Organization</th>
+            <th>Duration</th>
+        </tr>
+    <tbody>
+    {% for i in events %}
+    <tr>
+        <td>{{ events[i][0] }}</td>
+        <td>{{ events[i][1] }}</td>
+        <td>{{ events[i][2] }}</td>
+        <td>{{ events[i][3] }}</td>
+        <td>{{ events[i][4] }}</td>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}
