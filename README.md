@@ -1,7 +1,7 @@
 # Timegiver
 
 ## About
-Welcome to Timegiver! Here you can spontaneously find local volunteer opportunities based on your busy schedule. 
+Welcome to Timegiver! Here you can spontaneously find local volunteer opportunities based on your busy schedule, and post openings for others to help you out!
 
 ## Get started
 To run the app, please clone the repo on your desired IDE. Please install any packages when the IDE prompts you to do so. Run the Flask app locally.
