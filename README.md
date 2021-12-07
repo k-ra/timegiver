@@ -20,5 +20,8 @@ Register and log in as a volunteer. Put the amount of hours you would like to sp
 
 Both organizations and volunteers can update their time and openings seamlessly via our platform.
 
+## Why we made this
+Time is a most valuable resource. A problem a lot of us face is finding the right opportunity for community service given the spontaneity in our busy schedules. We want to create a platform that provides a user with service opportunities that fit their time and skills. When left with spare time, our website will allow the user to find a meaningful opportunity to fill their time, whether it’d be three hours or just thirty minutes. The user would also be able to filter through time, interest, and preferences. We hope that this can be adopted to be a helpful, customized, and secure tool for any nonprofit organization's internal management of volunteers.
+
 ## Contact
 We are two students at Harvard College, Carina Peng and Kyra Mo. You can reach us at fpeng@college.harvard.edu and kyramo@college.harvard.edu!
