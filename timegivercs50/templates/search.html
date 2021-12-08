@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Give Time
+{% endblock %}
+
+{% block main %}
+    <h3>Give Time</h3> 
+    <form action="/search" method="post">
+        Time to dedicate:
+        <br>
+        <input autocomplete="off" id="duration" name="duration" placeholder="IN 0.5 HRS" type="integer" step = "0.5">
+        <br>
+        
+
+        Type <i>(Optional)</i> :
+            <br><div class="mb-3">
+                <select name="type" id="type">
+                    <option>Environment</option>
+                    <option>Education</option>
+                    <option>Community</option>
+                    <option>Arts and Culture</option>
+                    <option>Animals</option>
+                    <option>Seniors</option>
+                </select>
+            </div><br>
+            <button type="submit">Search</button>
+    </form>
+{% endblock %}
