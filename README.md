@@ -1,7 +1,7 @@
 # Timegiver
 
 ## About
-Welcome to Timegiver! Here you can spontaneously find local volunteer opportunities based on your busy schedule, and post openings for others to help you out!
+Welcome to Timegiver! Here you can spontaneously find local volunteer opportunities based on your busy schedule and post openings for others to help you out!
 
 Here is a lightning 2-minute video walkthrough of Timegiver and its functions: https://youtu.be/dGIenUaEgY4
 
